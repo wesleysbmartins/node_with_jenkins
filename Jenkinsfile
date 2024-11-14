@@ -6,7 +6,7 @@ pipeline {
     }
 
     stages {
-        stage('Checkout Code') {
+        stage('Checkout') {
             steps {
                 git branch: 'master', url: 'https://github.com/wesleysbmartins/node_with_jenkins.git'
             }
@@ -17,14 +17,9 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Run Tests') {
+        stage('Tests') {
             steps {
                 sh 'npm test'
-            }
-        }
-        stage('Build') {
-            steps {
-                sh 'npm run build'
             }
         }
         stage('Deploy') {
