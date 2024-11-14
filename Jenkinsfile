@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                tool name: 'NodeJS 22', type: 'nodejs'
+                tool name: 'NodeJS Version', type: 'nodejs'
                 sh 'npm install'
             }
         }
