@@ -5,6 +5,10 @@ pipeline {
         NODE_ENV = 'production'
     }
 
+    tools {
+        nodejs 'NodeJS'
+    }
+
     stages {
         stage('Init') {
             steps {
@@ -20,8 +24,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                tool name: 'Node Version', type: 'nodejs'
-                sh 'npm cache clean --force && npm install'
+                sh 'npm install'
             }
         }
     }
