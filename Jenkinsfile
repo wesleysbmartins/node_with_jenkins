@@ -33,5 +33,20 @@ pipeline {
                 bat 'npm test'
             }
         }
+
+         stage('Deploy') {
+            steps {
+                echo 'Deploy step would go here'
+            }
+        }
+    }
+    
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed. Check logs for details.'
+        }
     }
 }
