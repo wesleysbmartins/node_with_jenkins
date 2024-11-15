@@ -1,3 +1,11 @@
-const p = require("./print/index.js");
+const { createServer } = require("http");
+const { requestHandler } = require("./request_handler/index.js");
+const { print } = require("./print/index.js");
 
-p.print("Teste 01");
+const server = createServer(requestHandler);
+
+const port = 3000;
+
+server.listen(port, () => {
+    print(`Server Running on Port: ${port}`);
+});
