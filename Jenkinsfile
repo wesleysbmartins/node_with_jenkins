@@ -30,7 +30,7 @@ pipeline {
 
         stage('Tests') {
             steps {
-                bat 'npx test'
+                bat 'npm test'
             }
         }
     }
