@@ -21,7 +21,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 tool name: 'Node Version', type: 'nodejs'
-                sh 'npm install'
+                sh 'npm cache clean --force && npm install'
             }
         }
     }
