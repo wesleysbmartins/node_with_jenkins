@@ -6,9 +6,15 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
+        stage('Init') {
             steps {
                echo "Hello World!"
+            }
+        }
+
+        stage('Checkout') {
+            steps {
+                git branch: 'master', url: 'https://github.com/wesleysbmartins/node_with_jenkins.git'
             }
         }
     }
