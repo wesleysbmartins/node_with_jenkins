@@ -4,7 +4,7 @@ const { print } = require("./print/index.js");
 
 const server = createServer(requestHandler);
 
-const port = 5000;
+const port = 5050;
 
 server.listen(port, () => {
     print(`Server Running on Port: ${port}`);
