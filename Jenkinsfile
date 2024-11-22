@@ -14,13 +14,13 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'npm install'
+                sh 'npm install'
             }
         }
 
         stage('Tests') {
             steps {
-                bat 'npm test'
+                sh 'npm test'
             }
         }
 
@@ -30,7 +30,7 @@ pipeline {
                 script {
                     def imageName = 'node_with_jenkins:latest'
                     echo "Building Docker image: ${imageName}"
-                    bat "docker build -t ${imageName} ."
+                    sh "docker build -t ${imageName} ."
                 }
             }
         }
@@ -42,11 +42,11 @@ pipeline {
                     def imageName = 'node_with_jenkins:latest'
 
                     echo "Stopping and removing existing container, if any"
-                    bat "docker stop ${containerName} || echo 'No container to stop'"
-                    bat "docker rm ${containerName} || echo 'No container to remove'"
+                    sh "docker stop ${containerName} || echo 'No container to stop'"
+                    sh "docker rm ${containerName} || echo 'No container to remove'"
 
                     echo "Deploying new container"
-                    bat "docker run -d --name ${containerName} -p 5050:5050 ${imageName}"
+                    sh "docker run -d --name ${containerName} -p 5050:5050 ${imageName}"
                 }
             }
         }
