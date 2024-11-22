@@ -5,7 +5,8 @@ const { print } = require("./print/index.js");
 const server = createServer(requestHandler);
 
 const port = process.env.PORT || 5050;
+const host = process.env.HOST || "0.0.0.0";
 
-server.listen(port, () => {
+server.listen(port, host, () => {
     print(`Server Running on Port: ${port}`);
 });
