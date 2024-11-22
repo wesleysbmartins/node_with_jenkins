@@ -30,7 +30,7 @@ pipeline {
                 script {
                     def imageName = 'node_with_jenkins:latest'
                     echo "Building Docker image: ${imageName}"
-                    sh "docker build -t ${imageName} ."
+                    sh "sudo docker build -t ${imageName} ."
                 }
             }
         }
@@ -42,11 +42,11 @@ pipeline {
                     def imageName = 'node_with_jenkins:latest'
 
                     echo "Stopping and removing existing container, if any"
-                    sh "docker stop ${containerName} || echo 'No container to stop'"
-                    sh "docker rm ${containerName} || echo 'No container to remove'"
+                    sh "sudo docker stop ${containerName} || echo 'No container to stop'"
+                    sh "sudo docker rm ${containerName} || echo 'No container to remove'"
 
                     echo "Deploying new container"
-                    sh "docker run -d --name ${containerName} -p 5050:5050 ${imageName}"
+                    sh "sudo docker run -d --name ${containerName} -p 5050:5050 ${imageName}"
                 }
             }
         }
