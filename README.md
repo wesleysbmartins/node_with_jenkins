@@ -1,4 +1,4 @@
-# NodeJs with Jenkins
+# NodeJs with Jekins [![My Skills](https://skillicons.dev/icons?i=nodejs,jest,docker,jenkins)](https://skillicons.dev)
 Este é um projeto de estudos onde a ideia é implementar uma esteira de CI/CD usando Jenkins, uma ferramenta de automação extremamente poderosa e conhecida no mercado.
 
 Temos uma aplicação simples, que é um servidor REST que recebe requisições e as retorna um resultado de sucesso. Com a implementação de testes usando Jest e o encapsulamento da aplicação em um container do Docker.
